@@ -1,0 +1,28 @@
+@use 'variables';
+
+.type-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 3rem;
+	width: 30%;
+	margin: 5rem auto;
+}
+
+.type {
+	padding: 1rem 0;
+	font-size: 1.2rem;
+	border: 1px solid variables.$white-color;
+	border-radius: 10px;
+	color: variables.$white-color;
+	background-color: rgba(0, 0, 0, 0.3);
+	width: 100%;
+	transition: all linear 0.2s;
+}
+
+.type:hover {
+	background-color: variables.$white-color;
+	border: 1px solid black;
+	color: black;
+	cursor: pointer;
+}

@@ -1,3 +1,319 @@
-body {
-	background-image: url('../assets/puzzle-bcg.jpg');
+h2 {
+  color: rgb(255, 255, 255);
+  font-size: 3rem;
+  margin: 3rem;
 }
+
+.categories-container {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.category {
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  transition: all linear 0.2s;
+}
+
+.category:hover {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin: 3rem;
+}
+
+.button {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-family: "Coiny", system-ui;
+  padding: 1rem 4rem;
+  border-radius: 50px;
+  color: rgb(255, 255, 255);
+  border: 3px solid rgb(255, 255, 255);
+  cursor: pointer;
+  display: block;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+.difficulty-container {
+  width: 60%;
+  margin: 5rem auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.difficulty {
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  transition: all linear 0.2s;
+}
+
+.difficulty:hover {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+}
+
+.type-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  width: 30%;
+  margin: 5rem auto;
+}
+
+.type {
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  transition: all linear 0.2s;
+}
+
+.type:hover {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+}
+
+h4 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.answers-container {
+  width: 60%;
+  margin: 5rem auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 3rem;
+}
+
+.answer-btn {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
+
+.answer-btn.correct {
+  background: green;
+}
+
+.answer-btn.wrong {
+  background: red;
+}
+
+.timer-bar {
+  height: 6px;
+  width: 100%;
+  background-color: #4caf50;
+  transition: width 0.1s linear;
+  border-radius: 3px;
+  margin: 2rem 0;
+  margin-bottom: 10rem;
+}
+
+.new-game-btn {
+  margin: 4rem;
+  font-size: 3rem;
+  font-family: "Coiny", system-ui;
+  padding: 1rem 4rem;
+  border-radius: 50px;
+  color: rgb(255, 255, 255);
+  border: 3px solid rgb(255, 255, 255);
+  cursor: pointer;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: inline-block;
+  transition: all ease 0.2s;
+}
+
+.new-game-btn:hover {
+  transform: scale(1.1);
+}
+
+.game-over-text {
+  font-size: 5rem;
+  margin-top: 10rem;
+}
+
+.score {
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Coiny", system-ui;
+}
+
+body {
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(-225deg, #231557 0%, #44107a 29%, #ff1361 67%, #fff800 100%);
+  height: 100vh;
+}
+
+h1 {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 4rem;
+  width: 80%;
+  font-size: 5rem;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+}
+
+.container {
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+  padding: 1rem;
+  margin: 2rem auto;
+  display: flex;
+  gap: 1rem;
+}
+
+p {
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  width: fit-content;
+  font-size: 1.6rem;
+  border-radius: 30px;
+}
+
+p:nth-child(1) {
+  transform: translateX(-100vw);
+  animation: fromLeft 0.5s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+p:nth-child(2) {
+  transform: translateY(-100vh);
+  animation: fallBounce 1.5s cubic-bezier(0.25, 0.8, 0.5, 1) forwards;
+  animation-delay: 1s;
+}
+
+p:nth-child(3) {
+  transform: translateX(100vw);
+  animation: fromRight 0.5s ease-out forwards;
+  animation-delay: 2s;
+}
+
+@keyframes fallBounce {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  30% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(0);
+  }
+  85% {
+    transform: translateY(-10px);
+  }
+  95% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-3px);
+  }
+}
+@keyframes fromRight {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fromLeft {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+#start-quizz-btn {
+  margin: 4rem;
+  font-size: 3rem;
+  font-family: "Coiny", system-ui;
+  padding: 1rem 4rem;
+  border-radius: 50px;
+  color: rgb(255, 255, 255);
+  border: 3px solid rgb(255, 255, 255);
+  cursor: pointer;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: inline-block;
+  transition: all ease 0.2s;
+}
+
+#start-quizz-btn:hover {
+  transform: scale(1.1);
+}
+
+.selected {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  color: black;
+}
+
+/*# sourceMappingURL=style.css.map */
