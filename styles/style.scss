@@ -19,7 +19,13 @@
 
 body {
 	text-align: center;
-	background-color: #f8f6ff;
+	background-image: linear-gradient(
+		-225deg,
+		#231557 0%,
+		#44107a 29%,
+		#ff1361 67%,
+		#fff800 100%
+	);
 	min-height: 100vh;
 }
 
@@ -32,7 +38,6 @@ h1 {
 	@include center;
 	margin-top: 4rem;
 	width: variables.$container-width;
-	color: variables.$orange-color;
 	font-size: 5rem;
 	text-transform: uppercase;
 }
@@ -43,34 +48,34 @@ h1 {
 	padding: 1rem;
 	margin: 2rem auto;
 	display: flex;
-	gap: 2rem;
+	gap: 1rem;
 }
 
-.info-card {
+p {
 	@include center;
-	display: flex;
-	align-items: center;
 	padding: 2rem;
-	background: radial-gradient(ellipse, #d6caff, #b29ff2);
-	box-shadow: 0 0 10px #b29ff2;
+	background-color: rgba(0, 0, 0, 0.3);
+	border: 1px solid variables.$white-color;
 	color: variables.$white-color;
 	width: fit-content;
 	font-size: 1.6rem;
-	border-radius: 20px;
+	border-radius: 30px;
+}
+
+p:nth-child(1) {
 	transform: translateX(-100vw);
 	animation: fromLeft 0.5s ease-out forwards;
 	animation-delay: 0.1s;
 }
-
-.info-card.reverse {
+p:nth-child(2) {
 	transform: translateY(-200vh);
 	animation: fallBounce 1.5s cubic-bezier(0.25, 0.8, 0.5, 1) forwards;
 	animation-delay: 1s;
 }
-
-.info-card img {
-	width: 120px;
-	height: 120px;
+p:nth-child(3) {
+	transform: translateX(100vw);
+	animation: fromRight 0.5s ease-out forwards;
+	animation-delay: 2s;
 }
 
 @keyframes fallBounce {
@@ -103,6 +108,17 @@ h1 {
 		transform: translateY(-3px);
 	}
 }
+
+@keyframes fromRight {
+	0% {
+		transform: translateX(200px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
 @keyframes fromLeft {
 	0% {
 		transform: translateX(-200px);
@@ -119,20 +135,18 @@ h1 {
 	font-size: 3rem;
 	font-family: variables.$font;
 	padding: 1rem 4rem;
-	border-radius: 60px;
-	color: variables.$orange-color;
-	border: 6px solid variables.$orange-color;
+	border-radius: 50px;
+	color: variables.$white-color;
+	border: 3px solid variables.$white-color;
 	cursor: pointer;
 	text-decoration: none;
-	background: variables.$white-color;
+	background-color: rgba(255, 255, 255, 0.1);
 	display: inline-block;
 	transition: all ease 0.2s;
 }
 
 #start-quizz-btn:hover {
 	transform: scale(1.1);
-	color: variables.$white-color;
-	background: variables.$orange-color;
 }
 
 .selected {
