@@ -3,13 +3,37 @@
 import { createTimerBar } from './timer.js';
 
 export async function initGamePage() {
-	const category = localStorage.getItem('selectedCategory');
-	const parsedCategory = JSON.parse(category);
-	const categoryId = parsedCategory.id;
+	const gameContainer = document.querySelector('.game-container');
 
+	const rawCategory = localStorage.getItem('selectedCategory');
 	const difficulty = localStorage.getItem('difficulty');
-
 	const type = localStorage.getItem('type');
+
+	if (!rawCategory || !difficulty || !type) {
+		gameContainer.innerHTML = `
+					<div class="no-questions">
+						<h2>Session expired</h2>
+						<p>Please start a new game.</p>
+						<a href="/" class="new-game-btn">New game</a>
+					</div>
+				`;
+		window.history.pushState({}, '', '/');
+		return;
+	}
+
+	const parsedCategory = JSON.parse(rawCategory);
+	const categoryId = parsedCategory?.id;
+
+	if (!categoryId) {
+		gameContainer.innerHTML = `
+		<div class="no-questions">
+			<h2>Session expired</h2>
+			<p>Please start a new game.</p>
+			<a href="/" class="new-game-btn">New game</a>
+		</div>
+	`;
+		return;
+	}
 
 	const getQuestions = async () => {
 		const params = new URLSearchParams({
@@ -21,11 +45,9 @@ export async function initGamePage() {
 		if (type !== 'any') params.append('type', type);
 
 		const res = await fetch(`https://opentdb.com/api.php?${params}`);
-
 		const data = await res.json();
 
 		if (!data.results || data.results.length === 0) {
-			const gameContainer = document.querySelector('.game-container');
 			gameContainer.innerHTML = `
 					<div class="no-questions">
 						<h2>Sorry, there are no questions for this category, difficulty or type.</h2>
@@ -49,7 +71,6 @@ export async function initGamePage() {
 	};
 
 	const showQuestions = async () => {
-		const gameContainer = document.querySelector('.game-container');
 		const data = await getQuestions();
 		let index = 0;
 		let scoreCounter = 0;
