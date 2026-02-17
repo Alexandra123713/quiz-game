@@ -14,19 +14,18 @@ export const initCategoriesPage = () => {
 		return data.trivia_categories;
 	};
 
-	const clearCategories = async () => {
-		const categories = await getCategories();
-		const cleanedCategories = categories.map((el) => ({
-			...el,
-			name: el.name.replace('Science: ', '').replace('Entertainment: ', ''),
+	const clearCategories = (categories) => {
+		return categories.map((el) => ({
+		  ...el,
+		  name: el.name.replace('Science: ', '').replace('Entertainment: ', ''),
 		}));
-		return cleanedCategories;
-	};
-	clearCategories();
+	  };
 
 	const createCategories = async () => {
-		const categories = await clearCategories();
-		categories.forEach((el) => {
+		const categories = await getCategories();
+		const cleanedCategories = clearCategories(categories);
+
+		cleanedCategories.forEach((el) => {
 			const category = document.createElement('div');
 			category.textContent = el.name;
 			category.className = 'category';
