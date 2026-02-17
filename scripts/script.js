@@ -36,6 +36,12 @@ export async function initGamePage() {
 	}
 
 	const getQuestions = async () => {
+		const cacheKey = `questions_${categoryId}_${difficulty}_${type}`;
+
+		const cached = sessionStorage.getItem(cacheKey);
+		if (cached) {
+			return { results: JSON.parse(cached) };
+		}
 		const params = new URLSearchParams({
 			amount: 10,
 			category: categoryId,
@@ -57,6 +63,9 @@ export async function initGamePage() {
 				`;
 			throw new Error('No questions found for the selected options');
 		}
+
+		sessionStorage.setItem(cacheKey, JSON.stringify(data.results));
+
 		return data;
 	};
 
@@ -95,6 +104,8 @@ export async function initGamePage() {
 
 				gameContainer.innerHTML = '';
 				gameContainer.appendChild(gameOverContainer);
+
+				sessionStorage.removeItem(cacheKey);
 				return;
 			}
 
