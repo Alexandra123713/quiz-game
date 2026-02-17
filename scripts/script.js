@@ -81,9 +81,20 @@ export async function initGamePage() {
 
 	const showQuestions = async () => {
 		const data = await getQuestions();
-		let index = 0;
-		let scoreCounter = 0;
+
+		const cacheKey = `questions_${categoryId}_${difficulty}_${type}`;
+		const stateKey = `state_${categoryId}_${difficulty}_${type}`;
+
+		const savedState = JSON.parse(sessionStorage.getItem(stateKey) || '{}');
+
+		let index = savedState.index ?? 0;
+		let scoreCounter = savedState.scoreCounter ?? 0;
+
 		let stopTimer = null;
+
+		const saveState = () => {
+			sessionStorage.setItem(stateKey, JSON.stringify({ index, scoreCounter }));
+		};
 
 		const showNextQuestion = () => {
 			if (index >= data.results.length) {
@@ -106,6 +117,7 @@ export async function initGamePage() {
 				gameContainer.appendChild(gameOverContainer);
 
 				sessionStorage.removeItem(cacheKey);
+				sessionStorage.removeItem(stateKey);
 				return;
 			}
 
@@ -121,6 +133,7 @@ export async function initGamePage() {
 
 			stopTimer = createTimerBar(30000, timerContainer, () => {
 				index++;
+				saveState();
 				showNextQuestion();
 			});
 
@@ -150,6 +163,7 @@ export async function initGamePage() {
 						btn.classList.add('correct');
 						index++;
 						scoreCounter++;
+						saveState();
 						setTimeout(showNextQuestion, 800);
 					} else {
 						btn.classList.add('wrong');
@@ -159,6 +173,7 @@ export async function initGamePage() {
 							}
 						});
 						index++;
+						saveState();
 						setTimeout(showNextQuestion, 2000);
 					}
 				});
