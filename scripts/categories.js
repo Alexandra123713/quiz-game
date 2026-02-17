@@ -9,8 +9,13 @@ export const initCategoriesPage = () => {
 	nextBtn.style.opacity = '0.5';
 
 	const getCategories = async () => {
+		const cached = sessionStorage.getItem('categories');
+		if (cached) return JSON.parse(cached);
+
 		const res = await fetch('https://opentdb.com/api_category.php');
 		const data = await res.json();
+
+		sessionStorage.setItem('categories', JSON.stringify(data.trivia_categories));
 		return data.trivia_categories;
 	};
 
