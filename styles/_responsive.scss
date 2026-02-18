@@ -21,8 +21,20 @@
 	}
 }
 @media (max-width: 576px) {
-	html {
-		font-size: 8px;
+	.home h1 {
+		font-size: 3rem;
+	}
+
+	.categories-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.category,
+	.difficulty,
+	.type,
+	.answer-btn {
+		font-size: 1.8rem;
 	}
 
 	.difficulty-container {
@@ -33,5 +45,33 @@
 	.answers-container {
 		display: flex;
 		flex-direction: column;
+	}
+
+	h4 {
+		font-size: 2rem;
+	}
+}
+
+@media (hover: hover) {
+	#start-quizz-btn:hover {
+		transform: scale(1.1);
+	}
+}
+
+@media (hover: none) {
+	#start-quizz-btn:active {
+		transform: scale(0.97);
+	}
+	.container p:nth-child(1) {
+		transform: none;
+		animation: none;
+	}
+	.container p:nth-child(2) {
+		transform: none;
+		animation: none;
+	}
+	.container p:nth-child(3) {
+		transform: none;
+		animation: none;
 	}
 }

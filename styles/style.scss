@@ -26,12 +26,17 @@ body {
 		#ff1361 67%,
 		#fff800 100%
 	);
-	min-height: 100vh;
+	min-height: 100dvh;
+	background-repeat: no-repeat;
 }
 
 main {
 	display: flex;
 	flex-direction: column;
+}
+
+.home {
+	overflow-x: hidden;
 }
 
 h1 {

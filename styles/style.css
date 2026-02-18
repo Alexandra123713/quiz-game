@@ -145,12 +145,12 @@ h4 {
 }
 
 .timer-bar {
-  height: 6px;
+  height: 10px;
   width: 100%;
   background-color: #4caf50;
   transition: width 0.1s linear;
   border-radius: 3px;
-  margin: 2rem 0;
+  margin: 5rem 0;
   margin-bottom: 10rem;
 }
 
@@ -206,8 +206,18 @@ h4 {
   }
 }
 @media (max-width: 576px) {
-  html {
-    font-size: 8px;
+  .home h1 {
+    font-size: 3rem;
+  }
+  .categories-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .category,
+  .difficulty,
+  .type,
+  .answer-btn {
+    font-size: 1.8rem;
   }
   .difficulty-container {
     display: flex;
@@ -216,6 +226,31 @@ h4 {
   .answers-container {
     display: flex;
     flex-direction: column;
+  }
+  h4 {
+    font-size: 2rem;
+  }
+}
+@media (hover: hover) {
+  #start-quizz-btn:hover {
+    transform: scale(1.1);
+  }
+}
+@media (hover: none) {
+  #start-quizz-btn:active {
+    transform: scale(0.97);
+  }
+  .container p:nth-child(1) {
+    transform: none;
+    animation: none;
+  }
+  .container p:nth-child(2) {
+    transform: none;
+    animation: none;
+  }
+  .container p:nth-child(3) {
+    transform: none;
+    animation: none;
   }
 }
 * {
@@ -228,12 +263,17 @@ h4 {
 body {
   text-align: center;
   background-image: linear-gradient(-225deg, #231557 0%, #44107a 29%, #ff1361 67%, #fff800 100%);
-  min-height: 100vh;
+  min-height: 100dvh;
+  background-repeat: no-repeat;
 }
 
 main {
   display: flex;
   flex-direction: column;
+}
+
+.home {
+  overflow-x: hidden;
 }
 
 h1 {
