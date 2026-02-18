@@ -3,6 +3,10 @@
 A modern, responsive Quiz Game built with Vanilla JavaScript, SCSS, and a custom URL router.
 The application allows users to select a category, difficulty, and question type, then play a timed quiz with score tracking.
 
+ Live Demo
+
+View Live Project: https://quiz-game-pink-gamma.vercel.app/
+
  Features
 
 - Category selection (fetched from Open Trivia API)
@@ -79,3 +83,5 @@ HTML5
 
 Open Trivia Database
 https://opentdb.com/
+
+
