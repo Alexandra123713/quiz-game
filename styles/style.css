@@ -230,13 +230,6 @@ h4 {
   h4 {
     font-size: 2rem;
   }
-}
-@media (hover: hover) {
-  #start-quizz-btn:hover {
-    transform: scale(1.1);
-  }
-}
-@media (hover: none) {
   #start-quizz-btn:active {
     transform: scale(0.97);
   }
@@ -258,6 +251,11 @@ h4 {
   padding: 0;
   font-family: "Coiny", system-ui;
   color: rgb(255, 255, 255);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -381,8 +379,11 @@ p:nth-child(3) {
   cursor: pointer;
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.1);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: all ease 0.2s;
+  line-height: 1;
 }
 
 #start-quizz-btn:hover {

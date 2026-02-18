@@ -50,15 +50,6 @@
 	h4 {
 		font-size: 2rem;
 	}
-}
-
-@media (hover: hover) {
-	#start-quizz-btn:hover {
-		transform: scale(1.1);
-	}
-}
-
-@media (hover: none) {
 	#start-quizz-btn:active {
 		transform: scale(0.97);
 	}
